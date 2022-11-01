@@ -1,8 +1,8 @@
 import numpy as np
 import pandas as pd
 
-from data_package.data_generator.data_creator import DummyDataCreator
-from data_package.data_generator.data_structures import columns
+from data_generator.data_creator import DummyDataCreator
+from data_generator.data_structures import columns
 
 
 def test_full():
@@ -28,5 +28,12 @@ def test_full():
         if true_col_names[col_name] == "Float":
             assert type(df[col_name][0]) == np.float64
 
+def test_text_corpuse():
+    input_value = 10
+    ddc = DummyDataCreator()
+    df = ddc.create_dummy_data(columns_dict=columns, iter_number=input_value)
 
+    assert isinstance(ddc.text_corpus, list)
+    assert len(ddc.text_corpus)>100
+    assert isinstance(ddc.text_corpus[10], str)
 

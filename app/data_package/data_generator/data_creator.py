@@ -1,15 +1,22 @@
 import datetime
 import random
-
+import json
 import pandas as pd
 from loguru import logger
-
+from app.data_package.data_generator.text_generation.config.core import TEXT_CORPUS_FILE
 
 class DummyDataCreator:
     """Create Dummy Data for a specified range"""
 
     def __init__(self):
         self.name = "DCC"
+        self.text_corpus = self.retrive_corpus()
+
+    def retrive_corpus(self):
+        with open(TEXT_CORPUS_FILE, 'r') as f:
+            text_list = json.load(f)
+        return text_list
+
 
     def create_categorical(self, categories):
         """Creates Categorical values from a list"""
@@ -22,6 +29,16 @@ class DummyDataCreator:
         return [
             random.uniform(range_bottom, range_top) for x in range(0, self.iter_number)
         ]
+
+    def create_text(self, max_numb_words, min_numb_words):
+        """Creates a list of words from a corpus"""
+        max_numb_words =int(max_numb_words)
+        min_numb_words=int(min_numb_words)
+        return [
+                ' '.join([random.choice(self.text_corpus) for x in range(min_numb_words, max_numb_words)])
+                 for x in range(0, self.iter_number)
+        ]
+
 
     def create_integer(self, range_bottom, range_top):
         """Creates Integer values for a Specified range"""
@@ -102,6 +119,12 @@ class DummyDataCreator:
                 column_details["Data"] = self.create_float(
                     column_details["BottomRange"], column_details["TopRange"]
                 )
+            if column_details["DataType"] == "Text":
+
+                column_details["Data"] = self.create_text(
+                    column_details["MaxNumberOfWords"], column_details["MinNumberOfWords"]
+                )
+
 
         df = self.create_dataframe(columns_dict)
 

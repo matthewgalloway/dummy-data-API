@@ -33,5 +33,11 @@ columns = {
         "DataType": "Float",
         "BottomRange": "10000",
         "TopRange": "0",
+    },
+    "col7": {
+        "name": "TEXT_EXAMPLE",
+        "DataType": "Text",
+        "MaxNumberOfWords": "15",
+        "MinNumberOfWords": "3",
     }
 }
