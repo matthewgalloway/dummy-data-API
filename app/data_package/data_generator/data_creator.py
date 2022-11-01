@@ -75,10 +75,12 @@ class DummyDataCreator:
     def create_dummy_data(self, columns_dict, iter_number):
 
         logger.info(f"Starting data creation for {iter_number} record")
+        logger.info(f"Starting data creation for {columns_dict} records")
 
         self.iter_number = iter_number
 
-        for column_name in columns_dict:
+        for column_name in columns_dict.keys():
+            logger.info(f"Creating for column name: {column_name} ")
 
             column_details = columns_dict[column_name]
 
