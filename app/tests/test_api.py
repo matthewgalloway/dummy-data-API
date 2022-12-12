@@ -2,6 +2,8 @@ from fastapi.testclient import TestClient
 from app.data_package.data_generator.data_structures import dummy_api_json
 import pandas as pd
 from loguru import logger
+
+
 def test_create_dd(client, test_data)->None:
     dummy_api_json = test_data
     logger.info(f"dummy json is {dummy_api_json}")
