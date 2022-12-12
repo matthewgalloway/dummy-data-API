@@ -14,12 +14,12 @@ prepare_venv: &prepare_venv
       PYTHONPATH="~/.local/bin" python3 -m tox
       pip install --upgrade pip
 
-prepare_tox: &prepare_tox,
-  run:
-    name: Install tox
-    command: |
-      sudo pip install --upgrade pip
-      pip install --user tox
+#prepare_tox: &prepare_tox,
+#  run:
+#    name: Install tox
+#    command: |
+#      sudo pip install --upgrade pip
+#      pip install --user tox
 
 jobs:
   test_app_api:
