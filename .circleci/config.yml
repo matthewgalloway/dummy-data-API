@@ -11,8 +11,10 @@ prepare_venv: &prepare_venv
     command: |
       python3 -m venv venv
       source venv/bin/activate
-      PYTHONPATH="~/.local/bin" python3 -m tox
       pip install --upgrade pip
+      pip install tox
+      PYTHONPATH="~/.local/bin" python3 -m tox
+
 
 #prepare_tox: &prepare_tox,
 #  run:
