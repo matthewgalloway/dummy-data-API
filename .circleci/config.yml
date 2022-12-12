@@ -27,6 +27,7 @@ jobs:
     steps:
       - checkout:
           path: ~/project
+      - *prepare_venv
       - *prepare_tox
       - run:
           name: Running app API test
