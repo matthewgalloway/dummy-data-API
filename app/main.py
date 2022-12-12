@@ -2,7 +2,7 @@ from typing import Any
 from loguru import logger
 from fastapi import APIRouter, FastAPI, Request
 from fastapi.responses import HTMLResponse
-from api import api_router
+from app.api import api_router
 
 app = FastAPI()
 root_router = APIRouter()
