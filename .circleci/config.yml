@@ -27,11 +27,11 @@ jobs:
     steps:
       - checkout:
           path: ~/project
-        - *prepare_tox
-        - run:
-            name: Running app API test
-            command: |
-              tox
+      - *prepare_tox
+      - run:
+          name: Running app API test
+          command: |
+            tox
 
   publish_docker_image_to_aws:
     <<: *defaults
