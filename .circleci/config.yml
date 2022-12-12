@@ -56,5 +56,8 @@ workflows:
       - publish_docker_image_to_aws:
           requires:
             - test_app_api
-          filter
+          filters:
+            branches:
+              only:
+                - cicd_script
 
