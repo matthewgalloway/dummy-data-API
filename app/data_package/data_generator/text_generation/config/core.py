@@ -1,5 +1,5 @@
 from pathlib import Path
-from data_generator.text_generation import datasets
+from app.data_package.data_generator.text_generation import datasets
 
 DATASET_DIR = Path(datasets.__file__).resolve().parent
 TEXT_CORPUS_FILE = str(DATASET_DIR)+"/testfile.json"

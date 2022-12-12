@@ -1,5 +1,5 @@
-from processing.data_manager import retrieve_texts, create_unique_list, save_list
-from config.core import text_urls
+from app.data_package.data_generator.data_manager import retrieve_texts, create_unique_list, save_list
+from app.data_package.data_generator.text_generation.config.core import text_urls
 from loguru import logger
 
 

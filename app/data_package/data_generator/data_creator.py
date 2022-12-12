@@ -3,7 +3,8 @@ import random
 import json
 import pandas as pd
 from loguru import logger
-from app.data_package.data_generator.text_generation.config.core import TEXT_CORPUS_FILE
+from app.data_package.data_generator.text_generation.config.core import  TEXT_CORPUS_FILE
+
 
 class DummyDataCreator:
     """Create Dummy Data for a specified range"""
@@ -89,12 +90,13 @@ class DummyDataCreator:
 
         return df
 
-    def create_dummy_data(self, columns_dict, iter_number):
+    def create_dummy_data(self, api_json_input):
 
-        logger.info(f"Starting data creation for {iter_number} record")
+        self.iter_number = api_json_input["NumOfRows"]
+        columns_dict = api_json_input["Columns"]
+
+        logger.info(f"Starting data creation for {self.iter_number} record")
         logger.info(f"Starting data creation for {columns_dict} records")
-
-        self.iter_number = iter_number
 
         for column_name in columns_dict.keys():
             logger.info(f"Creating for column name: {column_name} ")
