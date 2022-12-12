@@ -48,5 +48,13 @@ jobs:
             aws ecs update-service --cluster ml-api-cluster --service custom-service --task-definition  first-run-task-definition --force-new-deployment
 
 
-
+workflows:
+  version: 2
+  full_run:
+    jobs:
+      - test_app_api
+      - publish_docker_image_to_aws:
+          requires:
+            - test_app_api
+          filter
 
