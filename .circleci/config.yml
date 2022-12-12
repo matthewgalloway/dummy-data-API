@@ -11,9 +11,10 @@ prepare_venv: &prepare_venv
     command: |
       python3 -m venv venv
       source venv/bin/activate
+      PYTHONPATH="~/.local/bin" python3 -m tox
       pip install --upgrade pip
 
-prepare_tox: &prepare_tox
+prepare_tox: &prepare_tox,
   run:
     name: Install tox
     command: |
@@ -28,7 +29,6 @@ jobs:
       - checkout:
           path: ~/project
       - *prepare_venv
-      - *prepare_tox
       - run:
           name: Running app API test
           command: |
