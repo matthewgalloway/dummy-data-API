@@ -1,7 +1,3 @@
-
-
-
-
 columns = {
     "col1": {
         "name": "INT_EXAMPLE",
@@ -46,7 +42,7 @@ columns = {
     }
 }
 dummy_api_json = {
-    "NumOfRows":1000,
+    "NumOfRows":10,
     "Columns":{
         "col1": {
             "name": "INT_EXAMPLE",
@@ -91,3 +87,25 @@ dummy_api_json = {
         }
     }
 }
+
+dummy_api_json_small = {
+    "NumOfRows": 1000,
+        "Columns": {
+            "col1": {
+                "name": "INT_EXAMPLE",
+                "DataType": "Int",
+                "BottomRange": "0",
+                "TopRange": "4",
+            },
+            "col2": {
+                "name": "CATEGORICAL_EXAMPLE",
+                "DataType": "Categorical",
+                "Categories": ["CAT1", "CAT2", "CAT3"],
+            },
+            "col3": {
+                "name": "DATE_EXAMPLE",
+                "DataType": "Date",
+                "StartDate": "01/01/2021",
+                "EndDate": "01/01/2022",
+            },
+        }}

@@ -13,7 +13,7 @@ RUN pip install -r /opt/dummy_data_api/app/requirements/requirements.txt
 RUN pip install -r /opt/dummy_data_api/app/data_package/requirements/requirements.txt
 
 # Copy over app files
-ADD ./app/ /opt/dummy_data_api/app/
+ADD app/ /opt/dummy_data_api/app/
 ADD ./requirements.txt /opt/dummy_data_api/
 ADD ./run.sh /opt/dummy_data_api/
 
