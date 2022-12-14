@@ -1,3 +1,6 @@
+NAME=ml-api
+COMMIT_ID=$(shell git rev-parse HEAD)
+
 build-ml-api-aws:
 	docker build -t $(NAME):$(COMMIT_ID) .
 

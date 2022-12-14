@@ -52,9 +52,7 @@ jobs:
           command: |
             sudo pip install awscli
             eval $(aws ecr get-login --no-include-email --region us-east-1)
-            docker build -t $(NAME):$(COMMIT_ID) .
-            docker push ${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/$(NAME):$(COMMIT_ID)
-            docker tag $(NAME):$(COMMIT_ID) ${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/$(NAME):$(COMMIT_ID)
+            make build-ml-api-aws tag-ml-api push-ml-api-aws
             aws ecs update-service --cluster ml-api-cluster --service custom-service --task-definition  first-run-task-definition --force-new-deployment
 
 
