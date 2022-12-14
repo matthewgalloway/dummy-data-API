@@ -30,11 +30,16 @@ jobs:
     steps:
       - checkout:
           path: ~/project
-      - *prepare_venv
+
       - run:
           name: Running app API test
           command: |
-            tox
+            python3 -m venv venv
+            source venv/bin/activate
+            pip install --upgrade pip
+            pip install tox
+            PYTHONPATH="~/.local/bin" python3 -m tox
+
 
   publish_docker_image_to_aws:
     <<: *defaults
