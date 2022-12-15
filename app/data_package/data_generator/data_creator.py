@@ -93,6 +93,7 @@ class DummyDataCreator:
     def create_dummy_data(self, api_json_input):
 
         self.iter_number = api_json_input["NumOfRows"]
+
         columns_dict = api_json_input["Columns"]
 
         logger.info(f"Starting data creation for {self.iter_number} record")

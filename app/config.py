@@ -68,3 +68,7 @@ def setup_app_logging(config: Settings) -> None:
 
 
 settings = Settings()
+
+max_row_error={
+    "Message": "Requested record size is greater than the max possible 1,000"
+}

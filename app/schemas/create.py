@@ -14,8 +14,6 @@ class DataCreationInputs(BaseModel):
     class Config:
         schema_extra ={
             "example":{
-                "inputs":[
-                    {
                         "NumOfRows": 1000,
                         "Columns": {
                             "col1": {
@@ -61,8 +59,6 @@ class DataCreationInputs(BaseModel):
                             }
                         }
                     }
-                ]
 
-            }
         }
 
