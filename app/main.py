@@ -34,4 +34,4 @@ app.include_router(api_router)
 if __name__== "__main__":
     logger.warning("Running in dev")
     import uvicorn
-    uvicorn.run(app, host="localhost", port=8001, log_level="debug")
+    uvicorn.run(app, host="localhost", port=5000, log_level="debug")
