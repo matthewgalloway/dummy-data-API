@@ -9,7 +9,7 @@ from app.api import api_router
 
 app = FastAPI()
 root_router = APIRouter()
-
+# d
 @root_router.get("/")
 def index(request: Request) -> Any:
     """Basic HTML response."""
