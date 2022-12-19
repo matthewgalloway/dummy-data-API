@@ -2,7 +2,7 @@ version: 2
 
 defaults: &defaults
   docker:
-    - image: circleci/python:3.7.0
+    - image: circleci/tensorflow/tensorflow:latest-py3
   working_directory: ~/project
 
 prepare_venv: &prepare_venv
@@ -51,7 +51,7 @@ jobs:
           name: Publishing docker image to aws ECR
           command: |
             sudo pip install awscli
-            eval $(aws ecr get-login --no-include-email --region us-east-1)
+            eval $(aws ecr get-login --region us-east-1)
             aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 632365357478.dkr.ecr.us-east-1.amazonaws.com
             make build-ml-api-aws tag-ml-api push-ml-api-aws
             aws ecs update-service --cluster dummy-data-cluster --service custom-service --task-definition  first-run-task-definition --force-new-deployment
