@@ -2,7 +2,7 @@ version: 2
 
 defaults: &defaults
   docker:
-    - image: circleci/tensorflow/tensorflow:latest-py3
+    - image: circleci/python:3.7.0
   working_directory: ~/project
 
 prepare_venv: &prepare_venv
