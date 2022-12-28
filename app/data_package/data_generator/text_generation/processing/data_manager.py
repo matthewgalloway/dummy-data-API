@@ -3,7 +3,7 @@ import tensorflow as tf
 from tensorflow import keras
 import keras_nlp
 import numpy as np
-from app.data_package.data_generator.text_generation.config.core import TEXT_CORPUS_FILE
+from data_package.data_generator.text_generation.config.core import TEXT_CORPUS_FILE
 from loguru import logger
 
 def clean_text_corpus(text_corpus):

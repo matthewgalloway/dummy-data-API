@@ -1,3 +1,6 @@
+import sys,os
+sys.path.append(os.path.abspath(os.path.dirname(os.path.dirname(__file__))))
+
 from typing import Any
 from loguru import logger
 from fastapi import APIRouter, FastAPI, Request
@@ -6,7 +9,7 @@ from app.api import api_router
 
 app = FastAPI()
 root_router = APIRouter()
-
+# d
 @root_router.get("/")
 def index(request: Request) -> Any:
     """Basic HTML response."""
@@ -31,4 +34,4 @@ app.include_router(api_router)
 if __name__== "__main__":
     logger.warning("Running in dev")
     import uvicorn
-    uvicorn.run(app, host="localhost", port=8001, log_level="debug")
+    uvicorn.run(app, host="localhost", port=5000, log_level="debug")
